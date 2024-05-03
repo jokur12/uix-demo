@@ -1,0 +1,237 @@
+body{
+    font-family:sans-serif;
+  }
+  
+  #menu_active {
+      position: absolute;
+  }
+  
+  #wrapper {
+      
+      transition: padding 1s;
+  }
+  
+  #menu_active:checked + #wrapper {
+      padding-left: 44px;
+      
+  }
+  
+  #menu {
+      position: fixed;
+      top: 75px;
+      left: 0;
+      bottom: 0;
+      width: 200px;
+      background-color: #1f1f1f;
+      transition: all 1s;
+      overflow-y: auto;
+      z-index: 10;
+      
+  }
+  
+  #menu_active:checked + #wrapper #menu {
+      left: -160px;
+      
+  }
+  
+  #menu_active:checked + #wrapper .fa-bars, #wrapper i.fa-arrow-left {
+      display: block;
+  }
+  
+  #menu_active:checked + #wrapper .fa-arrow-left, #wrapper i.fa-bars {
+      display: none;
+  }
+  
+  #menu i{
+      width:40px;
+      text-align:center;
+  }
+  
+  #site-name {
+      color: white;
+      display: block;
+      padding: 10px;
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 50px;
+      padding-right: 0px;
+  }
+  
+  #site-name i {
+      float: right;
+  }
+  
+  #site-name label {
+      color: white;
+      font-size: 30px;
+  }
+  
+  #menu ul {
+      padding: 0;
+  }
+  
+  #menu ul li {
+      color: white;
+      list-style: none;
+      padding: 15px;
+      padding-right:0px;
+      
+  }
+
+  
+  #menu ul a {
+      text-decoration: none;
+      color: white;
+      display: block;
+      height: 100%;
+  }
+  
+  
+  .button{
+    padding: 10px;
+    background-color: var(--ait);
+    border-radius: 5px;
+    margin: 10px;
+  }
+  .button-inactive{
+    padding: 10px;
+  }
+  .button-inactive:hover{
+    
+    background-color: rgba(255, 255, 255, 0.342);
+    transition: ease 0.5s;
+    border-radius: 5px;
+    color: white;
+  }
+  #ftr{
+    display: flex;
+    width: 180px;
+    left: 3px;
+    
+    position: fixed;
+    z-index: 10;
+    transition: ease 1s;
+    
+  }
+  #icons{
+    position: fixed;
+    top: 45px;
+    left: 200px;
+    transition: all 1s;
+  }
+  #menu::-webkit-scrollbar {
+    width: 5px; /* Kaydırma çubuğunun genişliğini ayarlar */
+  }
+  
+  /* Kaydırma çubuğunun arka planı */
+  #menu::-webkit-scrollbar-track {
+    background: #333; /* Arka plan rengini ayarlar */
+    border-radius: 12px; /* Yuvarlak köşeler ekler */
+  }
+  
+  /* Kaydırma çubuğunun 'sap' kısmı */
+  #menu::-webkit-scrollbar-thumb {
+    background: #555; /* Kaydırma çubuğunun rengini ayarlar */
+    border-radius: 12px; /* Sap kısmına yuvarlak köşeler ekler */
+  }
+  
+  /* Kaydırma çubuğunun sapı üzerine gelindiğinde */
+  #menu::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Hover efektinin rengini ayarlar */
+  }
+  .fa-arrow-left, .fa-bars{
+    float: right;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  #menu_active:checked + #wrapper #menu ul {
+    
+    transition: ease 1s;
+    transform: translateX(-200px); 
+  }
+  
+  #menu_active:checked + #wrapper #menu ul li {
+    
+    transform: translateX(-200px);
+    transition: ease 1s;
+  }
+  #menu_active:checked + #wrapper #menu{
+    overflow-y: hidden;
+    background-color: transparent;
+  }
+  #menu_active{
+    display: none;
+  }
+  #menu_active:checked + #wrapper #ftr{
+    transform: translateX(-160px);
+    display: block;
+  }
+  #menu_active:checked + #wrapper #icons{
+    transform: translateX(-180px);
+  }
+  @media only screen and (max-width: 600px) {
+    #menu  {
+      width:110px;
+      background-color: rgba(0,0,0, 0.60);  
+    }
+    #wrapper {
+      padding-left: 5px;  
+    }
+    
+    #site-name {
+      font-size: 18px;  
+    }
+    
+    #site-name label {
+      font-size: 24px;  
+    }
+    
+    .button {
+      padding: 8px;  
+      font-size: 14px;  
+    }
+    
+    #ftr {
+      display: flex; 
+      left: 3px;
+      width: 90px;
+    }
+    
+    #icons {
+      top:50px;
+      left: 200px;
+      display: block;  
+    }
+    
+    #menu_active:checked + #wrapper #menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      
+      
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;  
+      
+    }
+    
+    #menu_active:checked + #wrapper #ftr {
+      transform: translateX(-110px);
+      width: 0;
+    }
+    
+    #menu_active + #wrapper #icons {  
+      transform: translateX(-145px);
+      display: block;  
+    }
+    #menu_active:checked + #menu::after #wrapper{
+      width: 160px;
+    }
+  }
+  
+
+
+  
+  
+  
