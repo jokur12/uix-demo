@@ -7,6 +7,10 @@ import importlib
 
 
 uix.html.add_css_file("test_sidebar.css",__file__)
+uix.html.add_script_source(id="test_sidebar",script="test_sidebar.js",beforeMain=False,localpath=__file__)
+path=os.path.join(os.path.dirname(os.path.dirname(__file__)), "test_sidebar")
+uix.app.add_static_route("test_sidebar",path)
+
 def get_current_list():
     for list_item in lists:
         if context.session.paths[0] == list_item["title"]:

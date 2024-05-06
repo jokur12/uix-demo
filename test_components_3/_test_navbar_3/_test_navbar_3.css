@@ -1,0 +1,28 @@
+.test-navbar-3-row {
+    gap: 5px;
+    display: flex;
+}
+
+.test-navbar-3-button-active {
+    margin-top: 3px;
+    opacity: 1;
+}
+
+.test-navbar-3-button-inactive {
+    opacity: 0.8;
+}
+
+.test-navbar-3-button {
+    padding-top: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 18px;
+    padding-right: 20px;
+    padding-left: 20px;
+    transition: 0.25s;
+}
+
+.test-navbar-3-button-inactive:hover {
+    margin-top: 3px;
+    opacity: 0.9;
+}
