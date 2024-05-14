@@ -1,4 +1,4 @@
-from uix.elements import link, main, div, input, md, row, col, text 
+from uix.elements import link, main, div, input, md, row, col, text,label 
 from uix_components import tree_view
 from uix.core.session import context
 import pandas as pd
@@ -33,15 +33,26 @@ def get_info_from_folder(folder_path, folder_name, type):
 
 examples = get_info_from_folder("examples", "examples", "examples")
 components = get_info_from_folder("examples/components", "examples.components", "components")
-all_items = {**examples, **components}
+introductions=get_info_from_folder("test_components_3/test_introductions_3","test_components_3.test_introductions_3","test_introductions_3")
+all_items = {**examples, **components,**introductions}
 df = pd.DataFrame(all_items).transpose() 
 
 tree_view_items = {
+    "Setup": {
+        "Introductions":[]
+
+    },
     "Examples": {
         "Elements": [],
         "Components": []
     }
+
 }
+
+
+
+for key in introductions.keys():
+    tree_view_items["Setup"]["Introductions"].append({remove_underscore(key) : key })
 for key in examples.keys():
     tree_view_items["Examples"]["Elements"].append({remove_underscore(key) : key })
 for key in components.keys():
@@ -55,6 +66,10 @@ lists = [
     {
         "title": "components",
         "list": components
+    },
+    {
+        "title":"test_introductions_3",
+        "list": introductions
     }
 ]
 
@@ -127,6 +142,8 @@ def select_label(ctx, id, value):
         context.session.navigate(f"/examples/{id}")
     elif id in components.keys():
         context.session.navigate(f"/components/{id}")
+    elif id in introductions.keys():
+        context.session.navigate(f"/test_introductions_3/{id}")    
     else:
         print("Not found")
     
@@ -136,7 +153,9 @@ def menu():
     with div() as menu:
         tree_view(id="tree",data=tree_view_items, callback= select_label, selected_label= current_path[1] if len(current_path[1]) > 1 else None)
         if len(context.session.paths) > 1:
-            if context.session.paths[0] == "examples":
+            if context.session.paths[0] == "test_introductions_3":
+                ctx.elements["details-Introductions"].attrs["open"] = "True"
+            elif context.session.paths[0] == "examples":
                 ctx.elements["details-Elements"].attrs["open"] = "True"
             elif context.session.paths[0] == "components":
                 ctx.elements["details-Components"].attrs["open"] = "True"
@@ -166,6 +185,7 @@ def _root():
     with row():
         with col().cls("sidebar border"):
             with div(id="menu-content").cls("menu"):
+                
                 menu()
         with col().cls("main-content"):
             with row().style("height: 10%; justify-content: end; position: relative; justify-content: center;"):

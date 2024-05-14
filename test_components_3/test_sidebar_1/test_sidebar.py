@@ -1,5 +1,5 @@
 import uix
-from uix.elements import div, link,input,label,span,col,icon, unorderedlist, listitem
+from uix.elements import div, link,input,label,span,col,icon, unorderedlist, listitem, summary,details
 from uix.core.session import context
 import os
 import importlib
@@ -78,7 +78,7 @@ class test_sidebar(uix.Element):
                                         icon(value="fa fa-arrow-left")
                                         icon(value="fa fa-bars")
                                     with div(id="ftr"):
-                                        input(id="ftr", placeholder="Filtrele").cls("ftr-input").on("input",filter_menu)
+                                        input(id="ftr",placeholder="Filtrele...").cls("ftr-input").on("input",filter_menu).style("border-radius:0px;")
                             def filtrele():
                                 with unorderedlist().cls("ul")as liste:
                                     with listitem().cls("li"):
@@ -93,13 +93,9 @@ class test_sidebar(uix.Element):
                                                         link(item_without_spaces.title(), href=f"/{current_list['title']}/{item}").cls("button-inactive")
                                     return liste
                             with div(id="ftr_result").cls("ftr-result"):
-                                filtrele()            
-                   
-                        
-                    # with input("", placeholder="Filtrele" ,id="filtre").style("margin-bottom: 5px;justify-content:center;").cls("filter-input").on("input", filter_menu):
-                    #     pass
-                    # with div(id="nav-content").cls("nav-content"):
-                    #     #input("", placeholder="Filtrele" ,id="filtre").style("margin-bottom: 10px;justify-content:center;").cls("filter-input").on("input", filter_menu)
+                                filtrele()
+
+                    
                         
 
                     
