@@ -1,4 +1,4 @@
-from uix.elements import link, main, div, input, md, row, col, text,label 
+from uix.elements import link, main, div, input, md, row, col, text,label,button
 from uix_components import tree_view
 from uix.core.session import context
 import pandas as pd
